@@ -1,0 +1,165 @@
+<%- include('./partials/header.ejs') %>
+	<div class="bg-gradient-to-r from-blue-300 bg-blue-100">
+		<div class="synome-container">
+			<div
+				class="flex gap-10 justify-between items-center  mt-[50px] relative top-[50px] p-8 bg-white shadow-xl rounded-xl">
+				<!-- left side -->
+				<div class="flex gap-5 w-full">
+					<!-- profile picture -->
+					<div>
+						<img class="w-100 h-100 object-cover rounded-md" src="https://picsum.photos/150" alt="Large avatar">
+					</div>
+
+					<!-- profile desc -->
+					<div class="max-w-[400px]">
+						<h2 class="font-bold text-2xl">
+							<% if (locals.currentUser.provider==="google" ) { %>
+								<%=locals.currentUser.googleMetadata.given_name + locals.currentUser.googleMetadata.family_name
+									%>
+									<% } else { %>
+										<%=locals.currentUser.nickname %>
+											<% } %>
+						</h2>
+						<div>
+							<h6 class="text-secondary font-bold mt-2">Your Motive</h6>
+							<p class="text-sm text-secondary">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+								Suscipit
+								praesentium
+								magni illum itaque sit iure cumque. Vel eius explicabo id neque eos, qui error harum vitae
+								aliquam
+								illo? Corporis, maiores.</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- right side -->
+				<div class=" p-5 h-fit shadow border border-slate-300 rounded-lg relative">
+					<div>
+						<h6 class="text-secondary text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est quia
+							ad
+							adipisci consequuntur soluta.
+						</h6>
+					</div>
+					<ul class="mt-5 flex gap-5 items-center">
+						<!-- Likes -->
+						<li class="flex gap-2 text-xs items-center text-pink-500">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+								<path fill="currentColor"
+									d="m12.1 18.55l-.1.1l-.11-.1C7.14 14.24 4 11.39 4 8.5C4 6.5 5.5 5 7.5 5c1.54 0 3.04 1 3.57 2.36h1.86C13.46 6 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5c0 2.89-3.14 5.74-7.9 10.05M16.5 3c-1.74 0-3.41.81-4.5 2.08C10.91 3.81 9.24 3 7.5 3C4.42 3 2 5.41 2 8.5c0 3.77 3.4 6.86 8.55 11.53L12 21.35l1.45-1.32C18.6 15.36 22 12.27 22 8.5C22 5.41 19.58 3 16.5 3Z" />
+							</svg>
+							<span>250 Likes</span>
+						</li>
+						<!-- Bookmark -->
+						<li class="flex gap-2 text-xs items-center text-green-500">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+								<path fill="currentColor"
+									d="M5 21V5q0-.825.588-1.413T7 3h10q.825 0 1.413.588T19 5v16l-7-3l-7 3Zm2-3.05l5-2.15l5 2.15V5H7v12.95ZM7 5h10H7Z" />
+							</svg>
+							<span>10 Bookmark</span>
+						</li>
+						<!-- Share -->
+						<li class="flex gap-2 text-xs items-center text-blue-800">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+								<path fill="currentColor" fill-rule="evenodd"
+									d="M2.46 16.82a.75.75 0 0 1-.13-.86l.702-1.386a9.75 9.75 0 0 1 8.699-5.345h.345a59.47 59.47 0 0 1 .097-1.638l.068-.931a1.002 1.002 0 0 1 1.539-.771a19.632 19.632 0 0 1 5.373 5.089l.456.635a.75.75 0 0 1 0 .875l-.456.635a19.63 19.63 0 0 1-5.373 5.089a1.002 1.002 0 0 1-1.539-.771l-.068-.93a61.5 61.5 0 0 1-.111-1.957a13.998 13.998 0 0 0-6.27 1.282L3.313 16.98a.75.75 0 0 1-.854-.16Zm2.218-2.122l.485-.224a15.497 15.497 0 0 1 7.682-1.38a.75.75 0 0 1 .692.725c.025.861.07 1.722.132 2.582l.006.075a18.13 18.13 0 0 0 4.26-4.228l.142-.198l-.142-.197a18.13 18.13 0 0 0-4.26-4.228l-.006.075a59.758 59.758 0 0 0-.123 2.304a.75.75 0 0 1-.75.725h-1.065a8.25 8.25 0 0 0-7.053 3.969Z"
+									clip-rule="evenodd" />
+							</svg>
+							<span>54 Shares</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- tabs -->
+	<div class="synome-container">
+		<div class=" mt-[80px] px-10 bg-white shadow-md rounded-xl border border-slate-200">
+			<ul class="flex gap-5 justify-around items-center">
+				<li class="mr-2 ">
+					<a href="#"
+						class="inline-flex gap-2 items-center justify-center p-4 border-b-2  rounded-t-lg  text-blue-600 border-blue-600 active  group">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path fill="currentColor"
+								d="M16 19H3v-2h13v2zm5-10H3v2h18V9zM3 5v2h11V5H3zm14 0v2h4V5h-4zm-6 8v2h10v-2H11zm-8 0v2h5v-2H3z" />
+						</svg>
+						<span>Your Secrets</span>
+					</a>
+				</li>
+				<li class="mr-2">
+					<a href="#"
+						class="inline-flex gap-2 items-center justify-center p-4 border-transparent border-b-2 border-blue-600 rounded-t-lg  dark:text-blue-500 dark:border-blue-500 hover:border-gray-300 group"
+						aria-current="page">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+							<path fill="currentColor"
+								d="m12.1 18.55l-.1.1l-.11-.1C7.14 14.24 4 11.39 4 8.5C4 6.5 5.5 5 7.5 5c1.54 0 3.04 1 3.57 2.36h1.86C13.46 6 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5c0 2.89-3.14 5.74-7.9 10.05M16.5 3c-1.74 0-3.41.81-4.5 2.08C10.91 3.81 9.24 3 7.5 3C4.42 3 2 5.41 2 8.5c0 3.77 3.4 6.86 8.55 11.53L12 21.35l1.45-1.32C18.6 15.36 22 12.27 22 8.5C22 5.41 19.58 3 16.5 3Z" />
+						</svg>
+						<span>Liked</span>
+
+					</a>
+				</li>
+				<li class="mr-2">
+					<a href="#"
+						class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+						<svg
+							class="w-4 h-4 mr-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300"
+							aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+							<path
+								d="M5 11.424V1a1 1 0 1 0-2 0v10.424a3.228 3.228 0 0 0 0 6.152V19a1 1 0 1 0 2 0v-1.424a3.228 3.228 0 0 0 0-6.152ZM19.25 14.5A3.243 3.243 0 0 0 17 11.424V1a1 1 0 0 0-2 0v10.424a3.227 3.227 0 0 0 0 6.152V19a1 1 0 1 0 2 0v-1.424a3.243 3.243 0 0 0 2.25-3.076Zm-6-9A3.243 3.243 0 0 0 11 2.424V1a1 1 0 0 0-2 0v1.424a3.228 3.228 0 0 0 0 6.152V19a1 1 0 1 0 2 0V8.576A3.243 3.243 0 0 0 13.25 5.5Z" />
+						</svg>Bookmark
+					</a>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+	<!-- Gallery Element -->
+	<div class="px-5 mt-10 mx-auto grid sm:grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 md:gap-5 md:max-w-7xl">
+
+		<% isAuth && currentUser.posts.forEach((post)=> { %>
+			<div class="mt-5 shadow-md p-5 rounded-md border border-blue-500/10">
+				<div class="flex items-center gap-2">
+					<div
+						class="bg-blue-500 w-8 h-8 p-1 flex items-center justify-center rounded-full ring-2 ring-gray-300 dark:ring-gray-500">
+						<span class="font-medium text-white  dark:text-white">
+							JK
+						</span>
+					</div>
+					<span>|</span>
+					<p class="font-bold text-primary text-base">
+
+						<%=post.header %>
+				</div>
+				</p>
+				<p class="text-sm text-secondary mt-2 ">
+					<%=post.body %>
+				</p>
+				<p class="font-medium text-secondary mt-3 text-xs">~ <%=post.category %>
+				</p>
+
+				<div class="mt-5 flex justify-between items-center">
+					<div class="flex gap-3">
+						<button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+								<path fill="currentColor"
+									d="m12.1 18.55l-.1.1l-.11-.1C7.14 14.24 4 11.39 4 8.5C4 6.5 5.5 5 7.5 5c1.54 0 3.04 1 3.57 2.36h1.86C13.46 6 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5c0 2.89-3.14 5.74-7.9 10.05M16.5 3c-1.74 0-3.41.81-4.5 2.08C10.91 3.81 9.24 3 7.5 3C4.42 3 2 5.41 2 8.5c0 3.77 3.4 6.86 8.55 11.53L12 21.35l1.45-1.32C18.6 15.36 22 12.27 22 8.5C22 5.41 19.58 3 16.5 3Z" />
+							</svg></button>
+						<button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+								<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									stroke-width="2"
+									d="m20 12l-6.4-7v3.5C10.4 8.5 4 10.6 4 19c0-1.167 1.92-3.5 9.6-3.5V19l6.4-7z" />
+							</svg></button>
+						<button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+								<path fill="currentColor"
+									d="M5 21V5q0-.825.588-1.413T7 3h10q.825 0 1.413.588T19 5v16l-7-3l-7 3Zm2-3.05l5-2.15l5 2.15V5H7v12.95ZM7 5h10H7Z" />
+							</svg></button>
+					</div>
+					<div class="text-xs text-secondary">
+						<%=post.date.toLocaleString('en-us',{day: "numeric" , month:'short', year:'numeric'}) %>
+					</div>
+				</div>
+			</div>
+			<% }) %>
+	</div>
+
+
+	<%- include('./partials/footer.ejs') %>

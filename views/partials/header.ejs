@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/styles/output.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
+	<title>Spreads</title>
+</head>
+
+<body class="text-[#17396A]">
+	<!-- Navbar sticky -->
+	<nav class=" dark:bg-gray-900 fixed w-full z-20 top-0 left-0 shadow-sm bg-white dark:border-gray-600">
+
+		<div class="max-w-7xl flex flex-wrap items-center justify-between mx-auto py-2 px-5">
+			<% if (locals.isAuth) { %>
+				<span></span>
+				<div class="flex md:order-2">
+					<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" type="button">
+
+						<div
+							class="bg-blue-500 w-10 h-10 p-1 flex items-center justify-center rounded-full ring-2 ring-gray-300 dark:ring-gray-500">
+							<span class="font-medium text-white  dark:text-white">
+								<% if (locals.currentUser.provider==="google" ) { %>
+									<img class="rounded-full " src="<%=locals.currentUser.googleMetadata.picture  %>"
+										alt="Google Picture">
+									<% } else { %>
+										<%=currentUser.nickname.charAt(0).toUpperCase()%>
+											<% } %>
+							</span>
+						</div>
+					</button>
+					<!-- Dropdown menu -->
+					<div id="dropdown"
+						class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+						<ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+							<li>
+								<a href="/@<% if (locals.currentUser.provider== 'google' ) {%>
+									<%=locals.currentUser.googleMetadata.given_name +
+										locals.currentUser.googleMetadata.family_name%>
+										<% } else { %>
+											<%=locals.currentUser.nickname%>
+												<% } %>" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600
+													dark:hover:text-white">View
+									Profile
+								</a>
+							</li>
+							<li>
+								<a href="#"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+							</li>
+							<li>
+								<a href="/signOut"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
+									out</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<button data-collapse-toggle="navbar-sticky" type="button"
+					class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+					aria-controls="navbar-sticky" aria-expanded="false">
+					<span class="sr-only">Open main menu</span>
+					<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+						viewBox="0 0 17 14">
+						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M1 1h15M1 7h15M1 13h15" />
+					</svg>
+				</button>
+				<% } else { %>
+					<a type="button" href="/signUp"
+						class="text-blue-700 border duration-300 ease-in-out border-blue-700 hover:border-blue-800 hover:text-blue-800 relative hover:scale-105 hover:ring-5 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign
+						Up</a>
+					<div class="flex md:order-2">
+						<a type="button" href="/signIn"
+							class="text-white relative duration-300 ease-in-out bg-blue-700 hover:bg-blue-800 hover:scale-105 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign
+							in</a>
+						<button data-collapse-toggle="navbar-sticky" type="button"
+							class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+							aria-controls="navbar-sticky" aria-expanded="false">
+							<span class="sr-only">Open main menu</span>
+							<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+								viewBox="0 0 17 14">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M1 1h15M1 7h15M1 13h15" />
+							</svg>
+						</button>
+					</div>
+
+					<%} %>
+						<div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+							id="navbar-sticky">
+							<ul
+								class="flex flex-col p-4 gap-10 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+								<li>
+									<a href="#"
+										class="block py-2 relative duration-300 ease-in-out hover:scale-105 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+										aria-current="page"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+											viewBox="0 0 24 24">
+											<path fill="currentColor"
+												d="M6 19h3v-6h6v6h3v-9l-6-4.5L6 10v9Zm-2 2V9l8-6l8 6v12h-7v-6h-2v6H4Zm8-8.75Z" />
+										</svg></a>
+								</li>
+
+								<li>
+									<a href="/"
+										class="block py-2 relative duration-300 ease-in-out hover:scale-105 pl-3 pr-4 font-bold text-xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Spreads</a>
+								</li>
+								<li>
+									<a href="#"
+										class="block py-2 relative duration-300 ease-in-out hover:scale-105 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><svg
+											xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+											<path fill="currentColor"
+												d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2v6Z" />
+										</svg></a>
+								</li>
+
+
+							</ul>
+						</div>
+		</div>
+	</nav>

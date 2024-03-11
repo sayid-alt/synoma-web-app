@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+	.text-secondary {
+		@apply text-[#8B8B8B]
+	}
+	.bg-primary{
+		@apply bg-blue-500
+	}
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+		-ms-overflow-style: none;  /* IE and Edge */
+		scrollbar-width: none;  /* Firefox */
+  }
+
+  .synome-container{
+	@apply max-w-7xl mx-auto px-5
+  }
+
+  .active {
+	@apply text-blue-600 border-b border-blue-600
+  }
+}
